@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="topic">Deforestation</a>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="info.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="more.html">More</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+        <div class="mobile-nav">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="more-page">
+        <video autoplay muted loop id="video-bg"> <source src="video/2.mp4" type="video/mp4"></video>
+        <div class="overlay"></div>
+    </div>
+
+    <section class="info-header">
+        <div class="content">
+            <h3>For more inquiries</h3>
+            <p class="centered">Please don't hesitate to contact us.</p>
+            <p class="centered"><i class="fas fa-phone-alt"></i> 09*********</p>
+            <p class="centered"><i class="fa-solid fa-user-group"></i> GROUP 2</p>
+            <p class="centered"><i class="fas fa-envelope"></i> unknown@example.com</p>
+            <h3>References</h3>
+            <p class="centered">https://education.nationalgeographic.org/resource/deforestation/</p>
+            <p class="centered">https://youmatter.world/en/definitions/definitions-what-is-definition-deforestation-causes-effects/</p>
+            <p class="centered">National Geographic: Deforestation</p>
+            <p class="centered">Youmatter: Deforestation Causes and Effects</p>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('.mobile-nav').addEventListener('click', () => {
+            document.querySelector('.navigation-items').classList.toggle('active');
+        });
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('section, div, footer, .info-card');
+        
+            elements.forEach(element => {
+                element.classList.add('fade-in');
+            });
+        
+            const appearOptions = {
+                threshold: 0.5,
+                rootMargin: "0px 0px -50px 0px"
+            };
+        
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('fade-in-visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+        
+            elements.forEach(element => {
+                appearOnScroll.observe(element);
+            });
+        });
+    </script>
+
+</body>
+</html>

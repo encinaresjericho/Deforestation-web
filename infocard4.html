@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infocard - 4</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="topic">Deforestation</a>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="info.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="more.html">More</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+        <div class="mobile-nav">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="info-header">
+        <div class="content">
+            <h1>Ways on How to Stop Deforestation</h1>
+            <p>Deforestation is a major threat to our planet, causing biodiversity loss, impacting climate change, and disrupting indigenous communities. But there is hope! By taking action in our daily lives and supporting larger initiatives, we can all be part of the solution. Here are some powerful ways you can join the fight to protect our vital forests:</p>
+            <li>Plant More Trees</li>
+            <p>Engage in tree-planting initiatives in your community or through global organizations.</p>
+            <li>Go Paperless</li>
+            <p>Reduce paper consumption by going digital at home and in the office. When you do need to print, use both sides of the paper.</p>
+            <li>Buy Certified Wood Products</li>
+            <p>Opt for wood or paper products that are certified by the Forest Stewardship Council (FSC) or similar organizations.</p>
+            <li>Recycle and Buy Recycled Products</li>
+            <p>Support the recycling economy by buying recycled products and recycling them again after use.</p>
+            <li>Educate Others</li>
+            <p>Raise awareness about deforestation in your social circle and community. The more people know, the more they can help.</p>
+            <li>Support Sustainable Agriculture</li>
+            <p>Buy from local farmers who practice sustainable agriculture, helping to reduce the demand for deforested land.</p>
+            <li>Advocate for Forest Protection Policies</li>
+            <p>Support policies and politicians that prioritize forest conservation and responsible land use.</p>
+            <li>Offset Your Carbon Footprint</li>
+            <p>Consider supporting carbon offset programs that protect existing forests or plant new trees.</p>
+            <li>Use Renewable Energy</li>
+            <p>Using renewable energy reduces the need for deforestation caused by mining and drilling.</p>
+            <li>Volunteer or Donate</li>
+            <p>Consider donating your time or money to organizations that work to prevent deforestation.</p>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('.mobile-nav').addEventListener('click', () => {
+            document.querySelector('.navigation-items').classList.toggle('active');
+        });
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('section, div, footer, .info-card');
+        
+            elements.forEach(element => {
+                element.classList.add('fade-in');
+            });
+        
+            const appearOptions = {
+                threshold: 0.5,
+                rootMargin: "0px 0px -50px 0px"
+            };
+        
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('fade-in-visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+        
+            elements.forEach(element => {
+                appearOnScroll.observe(element);
+            });
+        });
+        </script>
+
+</body>
+</html>

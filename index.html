@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deforestation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <a href="#" class="topic">Deforestation</a>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="info.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="more.html">More</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+        <div class="mobile-nav">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="landing-page">
+        <video class="video-slide" src="video/1.mp4" autoplay muted loop></video>
+        <div class="content">
+            <h1>Combating<br><span>Deforestation</span></h1>
+            <p>Today, the greatest amount of deforestation is occurring in tropical rainforests, aided by extensive road construction into regions that were once almost inaccessible. Building or upgrading roads into forests makes them more accessible for exploitation. Slash-and-burn agriculture is a big contributor to deforestation in the tropics. With this agricultural method, farmers burn large swaths of forest, allowing the ash to fertilize the land for crops. The land is only fertile for a few years, however, after which the farmers move on to repeat the process elsewhere. Tropical forests are also cleared to make way for logging, cattle ranching, and oil palm and rubber tree plantations.</p>
+            <a href="info.html">For more info</a>
+        </div>
+    </section>
+
+    <script>
+        document.querySelector('.mobile-nav').addEventListener('click', () => {
+            document.querySelector('.navigation-items').classList.toggle('active');
+        });
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('section, div, footer, .info-card');
+        
+            elements.forEach(element => {
+                element.classList.add('fade-in');
+            });
+        
+            const appearOptions = {
+                threshold: 0.5,
+                rootMargin: "0px 0px -50px 0px"
+            };
+        
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('fade-in-visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+        
+            elements.forEach(element => {
+                appearOnScroll.observe(element);
+            });
+        });
+        </script>
+    
+</body>
+</html>

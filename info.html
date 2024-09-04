@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Info</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="topic">Deforestation</a>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="#">Home</a>
+                <a href="about.html">About</a>
+                <a href="more.html">More</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+        <div class="mobile-nav">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="info-header">
+        <div class="content">
+            <h1>What is Deforestation</h1>
+            <p>Deforestation refers to the widespread removal of forests, leading to a significant reduction in forested land. Often driven by human activities such as agriculture, logging, infrastructure development, and urban expansion, deforestation is essentially the purposeful clearing of forested land. Throughout history and into modern times, forests have been razed to make space for agriculture and animal grazing, and to obtain wood for fuel, manufacturing, and construction.</p>
+        </div>
+    </div>
+
+    <section class="info">
+        <div class="container">
+            <div class="info-card">
+                <img src="image/d1.jpg">
+                <h2>A Historical Overview of Global Deforestation</h2>
+                <p>Deforestation has greatly altered landscapes around the world. About 2,000 years ago, 80 percent of Western Europe was forested; today the figure is 34 percent. In North America, about half of the forests in the eastern part of the continent were cut down from the 1600s to the 1870s for timber and agriculture.</p>
+                <a href="infocard1.html" class="read-more">Click More</a>
+            </div>
+            <div class="info-card">
+                <img src="image/d2.jpg">
+                <h2>The Causes of Deforestation: Why Is It Happening?</h2>
+                <p>Multiple factors, either of human or natural origin, cause deforestation. Natural factors include natural forest fires or parasite-caused diseases which can result in deforestation. Nevertheless, human activities are among the main causes of global deforestation.</p>
+                <a href="infocard2.html" class="read-more">Click More</a>
+            </div>
+            <div class="info-card">
+                <img src="image/d3.jpg">
+                <h2>Deforestation Effects: How Does It Affect The Environment?</h2>
+                <p>Deforestation has many consequences for natural ecosystems and it poses serious problems to the resilience of the planet. Here are some of the key effects of deforestation:</p>
+                <a href="infocard3.html" class="read-more">Click More</a>
+            </div>
+        </div>
+            <div class="info-card">
+                <img src="image/d4.jpg">
+                <h2>Ways on How to Stop Deforestation</h2>
+                <p>Our planet's forests are vital, but face a huge threat: deforestation, the large-scale cutting down of trees. This damages the environment in many ways. The good news is, there are steps we can all take to stop it! From making smarter choices at the store to raising awareness, here's how we can join the fight to protect our precious forests.</p>
+                <a href="infocard4.html" class="read-more">Click More</a>
+            </div>
+    </section>
+
+    <script>
+        document.querySelector('.mobile-nav').addEventListener('click', () => {
+            document.querySelector('.navigation-items').classList.toggle('active');
+        });
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('section, div, footer, .info-card');
+        
+            elements.forEach(element => {
+                element.classList.add('fade-in');
+            });
+        
+            const appearOptions = {
+                threshold: 0.5,
+                rootMargin: "0px 0px -50px 0px"
+            };
+        
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('fade-in-visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+        
+            elements.forEach(element => {
+                appearOnScroll.observe(element);
+            });
+        });
+        </script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infocard - 3</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="topic">Deforestation</a>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="info.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="more.html">More</a>
+                <a href="faq.html">FAQ</a>
+            </div>
+        </div>
+        <div class="mobile-nav">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <section class="info-header">
+        <div class="content">
+            <h1>Deforestation Effects: How Does Deforestation Affect The Environment?</h1>
+            <p>Forests are an important natural resource, but humans have destroyed substantial quantities of forested land. Deforestation has many consequences for natural ecosystems and it poses serious problems to the resilience of the planet.</p>
+            <li>Loss of Biodiversity:</li>
+            <p>The need for more agricultural land to feed a growing population has led to extensive deforestation, especially in regions like the Amazon rainforest and Southeast Asia.</p>
+            <li>Climate Change:</li>
+            <p>Commercial logging for timber and paper products is a major contributor to deforestation, particularly in tropical regions where valuable hardwoods are harvested.            </p>
+            <li>Soil Erosion:</li>
+            <p>Construction of roads, highways, dams, and other infrastructure projects often requires clearing large areas of forest, fragmenting habitats and disrupting ecosystems.</p>
+            <li>Disruption of Water Cycles:</li>
+            <p>Rapid urban growth necessitates the conversion of forested land into cities and suburbs, leading to the loss of valuable forest ecosystems.</p>
+            <li>Loss of Livelihoods:</li>
+            <p>Extraction of minerals and resources from beneath forested areas often involves clearing trees and can result in widespread environmental degradation.</p>
+        </div>
+    </section>
+    
+    <script>
+        document.querySelector('.mobile-nav').addEventListener('click', () => {
+            document.querySelector('.navigation-items').classList.toggle('active');
+        });
+    </script>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const elements = document.querySelectorAll('section, div, footer, .info-card');
+        
+            elements.forEach(element => {
+                element.classList.add('fade-in');
+            });
+        
+            const appearOptions = {
+                threshold: 0.5,
+                rootMargin: "0px 0px -50px 0px"
+            };
+        
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('fade-in-visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+        
+            elements.forEach(element => {
+                appearOnScroll.observe(element);
+            });
+        });
+        </script>
+        
+</body>
+</html>

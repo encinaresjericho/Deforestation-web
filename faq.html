@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="topic">Deforestation</a>
+        <div class="navigation">
+            <div class="navigation-items">
+                <a href="info.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="more.html">More</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div class="mobile-nav">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <h1>Frequently Asked Questions</h1>
+  
+        <div class="faq">
+          <button class="bigbox">
+            Why is deforestation a concern?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="pannel">
+            <p>Deforestation can have significant negative impacts on the environment, including loss of biodiversity, disruption of ecosystems, soil erosion, and contribution to climate change through the release of greenhouse gases.</p>
+          </div>
+        </div>
+  
+        <div class="faq">
+          <button class="bigbox">
+            How does deforestation affect biodiversity?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="pannel">
+            <p>Forests are home to a wide variety of plant and animal species. When forests are cleared, these species lose their habitats, leading to a loss of biodiversity. Many species may become endangered or extinct as a result.</p>
+          </div>
+        </div>
+  
+        <div class="faq">
+          <button class="bigbox">
+            What are the main drivers of deforestation?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="pannel">
+            <p>The main drivers of deforestation include agriculture (such as clearing land for cattle ranching and crop cultivation), logging (for timber and paper products), urban expansion, infrastructure development, and mining.</p>
+          </div>
+        </div>
+  
+        <div class="faq">
+          <button class="bigbox">
+            How does deforestation contribute to climate change?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="pannel">
+            <p>Trees absorb carbon dioxide (CO2) from the atmosphere during photosynthesis and store it in their biomass. When trees are cut down or burned, this stored carbon is released back into the atmosphere as CO2, contributing to the greenhouse effect and climate change.</p>
+          </div>
+        </div>
+  
+        <div class="faq">
+          <button class="bigbox">
+            What are some solutions to deforestation?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="pannel">
+            <p>Solutions to deforestation include sustainable forest management practices, reforestation and afforestation efforts, promoting alternative livelihoods for communities dependent on forest resources, enforcing laws and regulations against illegal logging and land clearance, and supporting conservation initiatives.</p>
+          </div>
+        </div>
+  
+        <div class="faq">
+          <button class="bigbox">
+            What are the global efforts to address deforestation?
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="pannel">
+            <p>International agreements and initiatives such as the United Nations Framework Convention on Climate Change (UNFCCC) and the REDD+ (Reducing Emissions from Deforestation and Forest Degradation) program aim to reduce deforestation and promote sustainable forest management worldwide.</p>
+          </div>
+        </div>
+      </div>
+  
+      <script>
+        var acc = document.getElementsByClassName("bigbox");
+        var i;
+  
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            this.parentElement.classList.toggle("active");
+  
+            var pannel = this.nextElementSibling;
+  
+            if (pannel.style.display === "block") {
+              pannel.style.display = "none";
+            } else {
+              pannel.style.display = "block";
+            }
+          });
+        }
+      </script>
+
+<script>
+  document.querySelector('.mobile-nav').addEventListener('click', () => {
+      document.querySelector('.navigation-items').classList.toggle('active');
+  });
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const elements = document.querySelectorAll('section, div, footer, .info-card');
+  
+      elements.forEach(element => {
+          element.classList.add('fade-in');
+      });
+  
+      const appearOptions = {
+          threshold: 0.5,
+          rootMargin: "0px 0px -50px 0px"
+      };
+  
+      const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+          entries.forEach(entry => {
+              if (!entry.isIntersecting) {
+                  return;
+              } else {
+                  entry.target.classList.add('fade-in-visible');
+                  appearOnScroll.unobserve(entry.target);
+              }
+          });
+      }, appearOptions);
+  
+      elements.forEach(element => {
+          appearOnScroll.observe(element);
+      });
+  });
+  </script>
+    
+</body>
+</html>
